@@ -1,6 +1,7 @@
 import { Container, Row, Col, Form, InputGroup } from "react-bootstrap";
 import { BsFacebook, BsInstagram, BsSearch, BsWhatsapp } from "react-icons/bs";
 import { Outlet } from "react-router-dom";
+import "./Sidebar.css";
 
 function Sidebar() {
   return (
@@ -48,7 +49,8 @@ function Sidebar() {
           </div>
         </Col>
 
-        <Col lg={10} md={9} className="p-4 bg-white">
+        {/* AGGIUNTA LA CLASSE px-0 QUI PER TOGLIERE IL MARGINE BIANCO TRA SIDEBAR E HOME */}
+        <Col lg={10} md={9} xs={8} className="px-0">
           <Outlet />
         </Col>
       </Row>

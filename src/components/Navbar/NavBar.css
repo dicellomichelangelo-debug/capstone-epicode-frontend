@@ -11,3 +11,60 @@
     "ELSH" 0,
     "ELXP" 0;
 }
+.custom-navbar {
+  background: linear-gradient(90deg, #4da9ff 30%, #355cc9 60%, #1d1e6e 100%);
+  padding: 0.8rem 1.5rem;
+}
+
+
+/* --- DROPDOWN MENU --- */
+
+/* Contenitore della tendina */
+.custom-navbar .dropdown-menu {
+  background: #4096e69f; 
+  backdrop-filter: blur(10px); 
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); 
+  padding: 0.5rem;
+  margin-top: 0.8rem !important; 
+  
+
+  animation: dropdownFadeIn 0.25s ease-in-out forwards;
+}
+
+/* Singoli elementi cliccabili del menu */
+.custom-navbar .dropdown-item {
+  color: #1a2536;
+  font-weight: 500;
+  padding: 0.6rem 1rem;
+  border-radius: 8px; 
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+/* Effetto al passaggio del mouse (Hover) */
+.custom-navbar .dropdown-item:hover,
+.custom-navbar .dropdown-item:focus {
+  background-color: #4da9ff; 
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+/* Linea divisoria interna */
+.custom-navbar .dropdown-divider {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  margin: 0.4rem 0;
+}
+
+/* Animazione Keyframes */
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

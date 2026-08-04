@@ -1,0 +1,5 @@
+.custom-sidebar {
+    background: #4da9ff;
+    min-height: calc(100vh - 66px); /* Altezza schermo meno navbar */
+  color: #1a2536;
+}

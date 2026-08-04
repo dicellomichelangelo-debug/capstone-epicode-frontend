@@ -8,7 +8,7 @@ const products = [
 
 function Home() {
   return (
-    <Container className="fluid">
+    <Container fluid className="home-bg p-4">
       <Row xs={1} sm={2} md={2} lg={4} className="g-4">
         {products.map((item) => (
           <Col key={item.id}>

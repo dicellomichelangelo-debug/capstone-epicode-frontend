@@ -3,3 +3,9 @@
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
 }
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #1d1e6e; /* serve da fallback per il bordo destro */
+}

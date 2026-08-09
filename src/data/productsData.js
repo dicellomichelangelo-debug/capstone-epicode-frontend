@@ -1,0 +1,98 @@
+export const products = [
+    {
+    id: 1,
+    title: 'Apple MacBook Pro 14"',
+    subtitle: "Chip M3 Pro, 18GB RAM, 512GB SSD - Nero Spaziale",
+    badge: "Più venduto",
+    image:
+      "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500&auto=format&fit=crop&q=60",
+    rating: 4.9,
+    reviews: "(142)",
+    offers: 4,
+    price: "2.399,00",
+  },
+  {
+    id: 2,
+    title: "ASUS ROG Zephyrus G16",
+    subtitle: "Intel i9-14900HX, RTX 4080, 32GB RAM, 1TB SSD",
+    badge: "-15% Sconto",
+    image:
+      "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=500&auto=format&fit=crop&q=60",
+    rating: 4.7,
+    reviews: "(89)",
+    offers: 6,
+    price: "2.899,00",
+  },
+  {
+    id: 3,
+    title: "PC Gaming Rig Custom Alpha",
+    subtitle: "Ryzen 7 7800X3D, RTX 4070 Ti Super, Liquid Cooling",
+    badge: "Novità",
+    image:
+      "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=500&auto=format&fit=crop&q=60",
+    rating: 4.8,
+    reviews: "(56)",
+    offers: 2,
+    price: "1.950,00",
+  },
+  {
+    id: 4,
+    title: 'LG UltraGear OLED 27"',
+    subtitle: "240Hz, 0.03ms GTG, QHD 2560x1440, G-Sync Compatible",
+    badge: null,
+    image:
+      "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500&auto=format&fit=crop&q=60",
+    rating: 4.6,
+    reviews: "(210)",
+    offers: 8,
+    price: "849,00",
+  },
+  {
+    id: 5,
+    title: "Keychron K2 V2 Wireless",
+    subtitle: "Tastiera Meccanica Layout IT, Switch Gateron Brown",
+    badge: "Consigliato",
+    image:
+      "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=500&auto=format&fit=crop&q=60",
+    rating: 4.8,
+    reviews: "(312)",
+    offers: 3,
+    price: "99,90",
+  },
+  {
+    id: 6,
+    title: "Logitech MX Master 3S",
+    subtitle: "Mouse Wireless Ergonomico, Sensore 8K DPI, Silent Click",
+    badge: null,
+    image:
+      "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=500&auto=format&fit=crop&q=60",
+    rating: 4.9,
+    reviews: "(520)",
+    offers: 12,
+    price: "109,00",
+  },
+  {
+    id: 7,
+    title: "Sony WH-1000XM5",
+    subtitle: "Cuffie Over-Ear Wireless con Cancellazione del Rumore",
+    badge: "Offerta Top",
+    image:
+      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=60",
+    rating: 4.7,
+    reviews: "(405)",
+    offers: 7,
+    price: "329,00",
+  },
+  {
+    id: 8,
+    title: 'Apple iPad Air 11" M2',
+    subtitle: "128GB Wi-Fi, Display Liquid Retina - Grigio Siderale",
+    badge: null,
+    image:
+      "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=500&auto=format&fit=crop&q=60",
+    rating: 4.8,
+    reviews: "(98)",
+    offers: 5,
+    price: "699,00",
+  },
+];

@@ -49,7 +49,6 @@ function Sidebar() {
           </div>
         </Col>
 
-        {/* AGGIUNTA LA CLASSE px-0 QUI PER TOGLIERE IL MARGINE BIANCO TRA SIDEBAR E HOME */}
         <Col lg={10} md={9} xs={8} className="px-0">
           <Outlet />
         </Col>

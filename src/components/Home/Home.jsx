@@ -1,11 +1,8 @@
-import { Row, Col, Card, Badge, Container } from "react-bootstrap";
+import { Container, Row, Col, Card, Badge } from "react-bootstrap";
 import { BsHeart, BsStarFill, BsBoxArrowUpRight } from "react-icons/bs";
+import { Link } from "react-router-dom";
+import { products } from "../../data/productsData";
 import "./Home.css";
-
-const products = [
-  /* i tuoi dati prodotti */
-];
-
 function Home() {
   return (
     <Container fluid className="home-bg p-4">
@@ -20,19 +17,27 @@ function Home() {
                   {item.badge}
                 </Badge>
               )}
-
-              <Card.Img
-                variant="top"
-                src={item.image}
-                className="p-3"
-                alt={item.title}
-              />
+              <Link to={`/prodotto/${item.id}`}>
+                <Card.Img
+                  variant="top"
+                  src={item.image}
+                  className="p-3"
+                  alt={item.title}
+                  style={{ cursor: "pointer" }}
+                />
+              </Link>
 
               <Card.Body className="d-flex flex-column justify-content-between">
                 <div>
-                  <Card.Title className="fs-6 fw-bold mb-1">
-                    {item.title}
-                  </Card.Title>
+                  <Link
+                    to={`/prodotto/${item.id}`}
+                    className="text-decoration-none text-dark"
+                  >
+                    <Card.Title className="fs-6 fw-bold mb-1">
+                      {item.title}
+                    </Card.Title>
+                  </Link>
+
                   <Card.Text className="text-muted small mb-2">
                     {item.subtitle}
                   </Card.Text>
@@ -55,12 +60,13 @@ function Home() {
                 <div>
                   <div className="small text-muted">a partire da</div>
                   <div className="price-text">€ {item.price}</div>
-                  <a
-                    href="#dettagli"
+
+                  <Link
+                    to={`/prodotto/${item.id}`}
                     className="text-decoration-none small fw-semibold d-inline-flex align-items-center gap-1 mt-1"
                   >
                     <BsBoxArrowUpRight size={12} /> Dettagli del prodotto
-                  </a>
+                  </Link>
                 </div>
               </Card.Body>
             </Card>

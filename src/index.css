@@ -7,5 +7,5 @@ body, html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #1d1e6e; /* serve da fallback per il bordo destro */
+  background-color: #3c6bd1; /* serve da fallback per il bordo destro */
 }

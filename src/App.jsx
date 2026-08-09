@@ -3,7 +3,7 @@ import "./App.css";
 import Home from "./components/Home/Home";
 import Navbarc from "./components/Navbar/NavBarc";
 import Sidebar from "./components/Sidebar/Sidebar";
-
+import ProductDetail from "./components/ProductDetail/ProductDetail";
 function App() {
   return (
     <>
@@ -12,6 +12,7 @@ function App() {
         <Route element={<Sidebar />}>
           <Route path="/" element={<Home />} />
         </Route>
+        <Route path="/prodotto/:id" element={<ProductDetail />} />
       </Routes>
     </>
   );

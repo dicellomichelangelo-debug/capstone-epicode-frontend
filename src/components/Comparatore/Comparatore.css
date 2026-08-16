@@ -1,0 +1,44 @@
+.comparatore-wrapper {
+  min-height: 100vh;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  color: #ffffff;
+  background: linear-gradient(90deg, #4da9ff 30%, #355cc9 60%, #1d1e6e 100%);
+}
+
+.glass-card {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+}
+
+.custom-select {
+  background-color: #212529 !important;
+  color: #ffffff !important;
+  border-color: #495057 !important;
+  border-radius: 0.5rem !important;
+}
+
+.custom-select:focus {
+  box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25) !important;
+}
+
+.product-img-box {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  background-color: #ffffff;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.border-white-25 {
+  border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+.border-white-10 {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}

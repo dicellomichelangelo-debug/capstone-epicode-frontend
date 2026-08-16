@@ -4,6 +4,8 @@ import Home from "./components/Home/Home";
 import Navbarc from "./components/Navbar/NavBarc";
 import Sidebar from "./components/Sidebar/Sidebar";
 import ProductDetail from "./components/ProductDetail/ProductDetail";
+import Configuratore from "./components/Configuratore/Configuratore";
+import Comparatore from "./components/Comparatore/Comparatore";
 function App() {
   return (
     <>
@@ -13,6 +15,8 @@ function App() {
           <Route path="/" element={<Home />} />
         </Route>
         <Route path="/prodotto/:id" element={<ProductDetail />} />
+        <Route path="/configuratore" element={<Configuratore />} />
+        <Route path="/comparatore" element={<Comparatore />} />
       </Routes>
     </>
   );

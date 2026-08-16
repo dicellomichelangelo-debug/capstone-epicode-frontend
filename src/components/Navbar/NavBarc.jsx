@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { BsCart } from "react-icons/bs";
+import { Link } from "react-router-dom"; // 1. Importa Link da react-router-dom
 import Login from "../Login/Login";
 import "./NavBar.css";
 
@@ -22,7 +23,8 @@ function Navbarc() {
         className="custom-navbar sticky-top title-font"
       >
         <Container fluid>
-          <a href="#home">
+          {/* Logo collegato alla Home */}
+          <Link to="/">
             <img
               src="/logo.png"
               alt="logo desktop"
@@ -35,7 +37,7 @@ function Navbarc() {
               className="d-block d-lg-none"
               style={{ width: "3.5em", cursor: "pointer" }}
             />
-          </a>
+          </Link>
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
@@ -48,31 +50,43 @@ function Navbarc() {
                     id="shop-nav-dropdown"
                     className="custom-dropdown d-inline-block"
                   >
-                    <NavDropdown.Item href="#shop/macbook">
+                    <NavDropdown.Item as={Link} to="/#shop/macbook">
                       MacBook
                     </NavDropdown.Item>
-                    <NavDropdown.Item href="#shop/windows">
+                    <NavDropdown.Item as={Link} to="/#shop/windows">
                       Notebook Windows
                     </NavDropdown.Item>
-                    <NavDropdown.Item href="#shop/pcdesktop">
+                    <NavDropdown.Item as={Link} to="/#shop/pcdesktop">
                       PC Desktop
                     </NavDropdown.Item>
-                    <NavDropdown.Item href="#shop/monitor">
+                    <NavDropdown.Item as={Link} to="/#shop/monitor">
                       Monitor
                     </NavDropdown.Item>
-                    <NavDropdown.Item href="#shop/accessori">
+                    <NavDropdown.Item as={Link} to="/#shop/accessori">
                       Accessori
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="#shop/tutti">
+                    <NavDropdown.Item as={Link} to="/#shop/tutti">
                       Tutti i prodotti
                     </NavDropdown.Item>
                   </NavDropdown>
                 </div>
 
+                {/* Link a PC Builder / Configuratore */}
                 <div className="col-6 col-lg-auto py-2 py-lg-0">
-                  <Nav.Link href="#configuratore" className="text-white">
-                    Configuratore
+                  <Nav.Link
+                    as={Link}
+                    to="/configuratore"
+                    className="text-white"
+                  >
+                    PC Builder
+                  </Nav.Link>
+                </div>
+
+                {/* Link al Comparatore */}
+                <div className="col-6 col-lg-auto py-2 py-lg-0">
+                  <Nav.Link as={Link} to="/comparatore" className="text-white">
+                    Comparatore
                   </Nav.Link>
                 </div>
 

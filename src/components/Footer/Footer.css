@@ -1,0 +1,116 @@
+.custom-footer {
+  background: rgba(15, 20, 35, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  color: #e2e8f0;
+  font-size: 0.9rem;
+}
+
+.footer-brand-logo {
+  max-width: 140px;
+  height: auto;
+}
+
+.footer-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 35px;
+  height: 2px;
+  background-color: #4da9ff;
+  border-radius: 2px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.6rem;
+}
+
+.footer-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.footer-link:hover {
+  color: #4da9ff;
+  transform: translateX(4px);
+}
+
+.social-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-icon-btn:hover {
+  background: #4da9ff;
+  color: #ffffff;
+  border-color: #4da9ff;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(77, 169, 255, 0.4);
+}
+
+.newsletter-input {
+  background: rgba(0, 0, 0, 0.3) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+  border-radius: 0.5rem 0 0 0.5rem !important;
+}
+
+.newsletter-input::placeholder {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.newsletter-btn {
+  background-color: #355cc9 !important;
+  border: 1px solid #355cc9 !important;
+  color: #ffffff !important;
+  border-radius: 0 0.5rem 0.5rem 0 !important;
+  transition: background-color 0.2s ease !important;
+}
+
+.newsletter-btn:hover {
+  background-color: #4da9ff !important;
+  border-color: #4da9ff !important;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.payment-badge {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.25rem 0.6rem;
+  border-radius: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+}

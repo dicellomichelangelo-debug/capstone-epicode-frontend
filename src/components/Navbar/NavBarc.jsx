@@ -1,12 +1,19 @@
 import { useState } from "react";
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Container, Nav, Navbar, NavDropdown, Badge } from "react-bootstrap";
 import { BsCart } from "react-icons/bs";
-import { Link } from "react-router-dom"; // 1. Importa Link da react-router-dom
+import { Link } from "react-router-dom";
 import Login from "../Login/Login";
+import { useCart } from "../context/CartContext";
 import "./NavBar.css";
 
 function Navbarc() {
   const [showLogin, setShowLogin] = useState(false);
+
+  const { cartItems } = useCart();
+  const totalItemsCount = cartItems.reduce(
+    (acc, item) => acc + item.quantity,
+    0,
+  );
 
   const handleOpenLogin = (e) => {
     e.preventDefault();
@@ -23,7 +30,6 @@ function Navbarc() {
         className="custom-navbar sticky-top title-font"
       >
         <Container fluid>
-          {/* Logo collegato alla Home */}
           <Link to="/">
             <img
               src="/logo.png"
@@ -72,7 +78,6 @@ function Navbarc() {
                   </NavDropdown>
                 </div>
 
-                {/* Link a PC Builder / Configuratore */}
                 <div className="col-6 col-lg-auto py-2 py-lg-0">
                   <Nav.Link
                     as={Link}
@@ -83,16 +88,9 @@ function Navbarc() {
                   </Nav.Link>
                 </div>
 
-                {/* Link al Comparatore */}
                 <div className="col-6 col-lg-auto py-2 py-lg-0">
                   <Nav.Link as={Link} to="/comparatore" className="text-white">
                     Comparatore
-                  </Nav.Link>
-                </div>
-
-                <div className="col-6 col-lg-auto py-2 py-lg-0">
-                  <Nav.Link href="#assistenza" className="text-white">
-                    Assistenza
                   </Nav.Link>
                 </div>
 
@@ -106,23 +104,51 @@ function Navbarc() {
                   </Nav.Link>
                 </div>
               </div>
+
               <div className="col-12 col-lg-auto py-2 py-lg-0 d-block d-lg-none">
-                <Nav.Link href="#cart" className="text-white fs-4 p-0">
+                <Nav.Link
+                  as={Link}
+                  to="/cart"
+                  className="text-white fs-4 p-0 position-relative d-inline-block"
+                >
                   <BsCart />
+                  {totalItemsCount > 0 && (
+                    <Badge
+                      bg="danger"
+                      pill
+                      className="position-absolute top-0 start-100 translate-middle"
+                      style={{ fontSize: "0.6rem" }}
+                    >
+                      {totalItemsCount}
+                    </Badge>
+                  )}
                 </Nav.Link>
               </div>
             </Nav>
           </Navbar.Collapse>
-          {/* Icona del Carrello */}
+
           <div className="col-12 col-lg-auto py-2 py-lg-0 d-none d-lg-block">
-            <Nav.Link href="#cart" className="text-white fs-4 p-0">
+            <Nav.Link
+              as={Link}
+              to="/cart"
+              className="text-white fs-4 p-0 position-relative d-inline-block"
+            >
               <BsCart />
+              {totalItemsCount > 0 && (
+                <Badge
+                  bg="danger"
+                  pill
+                  className="position-absolute top-0 start-100 translate-middle"
+                  style={{ fontSize: "0.6rem" }}
+                >
+                  {totalItemsCount}
+                </Badge>
+              )}
             </Nav.Link>
           </div>
         </Container>
       </Navbar>
 
-      {/* Componente Modale Login */}
       <Login show={showLogin} handleClose={handleCloseLogin} />
     </>
   );

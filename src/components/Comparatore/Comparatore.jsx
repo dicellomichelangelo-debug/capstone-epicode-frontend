@@ -30,7 +30,6 @@ function Comparatore() {
           </p>
         </div>
 
-        {/* Selezione Categoria */}
         <Card className="glass-card p-4 mb-4">
           <Form.Group>
             <Form.Label className="fw-bold fs-5 mb-2">
@@ -54,7 +53,6 @@ function Comparatore() {
           </Form.Group>
         </Card>
 
-        {/* Selezione Prodotti */}
         <Row className="g-4 mb-5">
           <Col md={6}>
             <Card className="glass-card p-4 h-100">
@@ -107,7 +105,6 @@ function Comparatore() {
           </Col>
         </Row>
 
-        {/* Tabella Confronto */}
         {prodA && prodB ? (
           <Card className="glass-card p-4 overflow-hidden">
             <Table

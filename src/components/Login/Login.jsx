@@ -31,19 +31,16 @@ const Login = ({ show, handleClose }) => {
         email: formData.email,
         password: formData.password,
       });
-      // Logica per inviare i dati al backend di registrazione
     } else {
       console.log("Dati Login:", {
         email: formData.email,
         password: formData.password,
       });
-      // Logica per l'autenticazione
     }
 
     handleClose();
   };
 
-  // Funzione per resettare i dati e cambiare modalità
   const toggleMode = () => {
     setIsRegistering(!isRegistering);
     setFormData({ nome: "", email: "", password: "", confermaPassword: "" });
@@ -131,7 +128,6 @@ const Login = ({ show, handleClose }) => {
           </Button>
         </Form>
 
-        {/* Scritta cliccabile per alternare Login e Registrazione */}
         <div className="text-center mt-3 pt-3 border-top border-white-50">
           <small className="text-white-50">
             {isRegistering

@@ -13,10 +13,8 @@ function ProductDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  // Trova il prodotto nell'array importato
   const product = products.find((p) => p.id === parseInt(id));
 
-  // Gestione caso di prodotto non trovato
   if (!product) {
     return (
       <div

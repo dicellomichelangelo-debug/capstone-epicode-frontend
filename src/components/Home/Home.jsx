@@ -160,7 +160,7 @@ function Home() {
               </p>
               <Button
                 as={Link}
-                to="/AllProducts"
+                to="/categoria/windows"
                 variant="outline-light"
                 size="sm"
                 className="mt-auto w-auto me-auto"
@@ -190,13 +190,13 @@ function Home() {
           <Col>
             <Card className="category-card text-white text-start h-100 p-3">
               <BsDisplay size={40} className="mb-3 text-primary" />
-              <h4>Monitor & Accessori</h4>
+              <h4>Accessori</h4>
               <p className="text-white-50 small">
-                Schermi ad alto refresh rate, tastiere e mouse da pro gamer.
+                Tastiere e mouse da pro gamer.
               </p>
               <Button
                 as={Link}
-                to="/AllProducts"
+                to="/categoria/accessori"
                 variant="outline-light"
                 size="sm"
                 className="mt-auto w-auto me-auto"

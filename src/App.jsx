@@ -8,6 +8,8 @@ import Configuratore from "./components/Configuratore/Configuratore";
 import Comparatore from "./components/Comparatore/Comparatore";
 import Carrello from "./components/Carrello/Carrello";
 import Footer from "./components/Footer/Footer";
+import AllProducts from "./components/AllProducts/AllProducts";
+import CategoryPage from "./components/CategoryPage/CategoryPage";
 
 function App() {
   return (
@@ -15,8 +17,10 @@ function App() {
       <Navbarc />
       <main className="flex-grow-1">
         <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/categoria/:categoryName" element={<CategoryPage />} />
           <Route element={<Sidebar />}>
-            <Route path="/" element={<Home />} />
+            <Route path="/AllProducts" element={<AllProducts />} />
           </Route>
           <Route path="/prodotto/:id" element={<ProductDetail />} />
           <Route path="/configuratore" element={<Configuratore />} />

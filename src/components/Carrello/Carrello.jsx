@@ -247,7 +247,7 @@ function Carrello() {
                 carrello.
               </p>
               <Link
-                to="/"
+                to="/AllProducts"
                 className="btn btn-light btn-lg fw-bold px-4 rounded-3"
               >
                 Esplora i prodotti

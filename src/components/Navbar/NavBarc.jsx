@@ -56,23 +56,26 @@ function Navbarc() {
                     id="shop-nav-dropdown"
                     className="custom-dropdown d-inline-block"
                   >
-                    <NavDropdown.Item as={Link} to="/#shop/macbook">
+                    <NavDropdown.Item as={Link} to="/">
+                      Home
+                    </NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/categoria/macbook">
                       MacBook
                     </NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to="/#shop/windows">
+                    <NavDropdown.Item as={Link} to="/categoria/windows">
                       Notebook Windows
                     </NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to="/#shop/pcdesktop">
+                    <NavDropdown.Item as={Link} to="/categoria/desktop">
                       PC Desktop
                     </NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to="/#shop/monitor">
+                    <NavDropdown.Item as={Link} to="/categoria/monitor">
                       Monitor
                     </NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to="/#shop/accessori">
+                    <NavDropdown.Item as={Link} to="/categoria/accessori">
                       Accessori
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item as={Link} to="/#shop/tutti">
+                    <NavDropdown.Item as={Link} to="/AllProducts">
                       Tutti i prodotti
                     </NavDropdown.Item>
                   </NavDropdown>

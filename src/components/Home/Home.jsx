@@ -1,167 +1,213 @@
-import { Container, Row, Col, Card, Badge, Button } from "react-bootstrap";
 import {
-  BsHeart,
-  BsStarFill,
-  BsBoxArrowUpRight,
-  BsCartPlus,
-  BsTrash,
+  Carousel,
+  Container,
+  Row,
+  Col,
+  Button,
+  Badge,
+  Card,
+} from "react-bootstrap";
+import { Link } from "react-router-dom";
+import {
+  BsCreditCard2Front,
+  BsTruck,
+  BsHeadset,
+  BsShieldCheck,
+  BsLaptop,
+  BsCpu,
+  BsDisplay,
 } from "react-icons/bs";
-import { Link, useOutletContext } from "react-router-dom";
-import { products } from "../../data/productsData";
-import { formatPrice } from "../../utils/formatters";
-import { useCart } from "../context/CartContext";
 import "./Home.css";
 
+const slides = [
+  {
+    id: 1,
+    title: "Studia. Crea. Vinci.",
+    subtitle:
+      "Consigliato per gli studenti e creator. Con la potenza delle GPU AI.",
+    badgeText: "GEFORCE RTX",
+    btnText: "Acquista Ora",
+    btnLink: "/AllProducts",
+    bgImage:
+      "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1600&auto=format&fit=crop",
+  },
+  {
+    id: 2,
+    title: "Dominio Assoluto nel Gaming",
+    subtitle:
+      "Esplora i nuovi PC Assemblati e la potenza delle componenti di ultima generazione.",
+    badgeText: "POWERED BY MSI",
+    btnText: "Configura il tuo PC",
+    btnLink: "/configuratore",
+    bgImage:
+      "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?q=80&w=1600&auto=format&fit=crop",
+  },
+  {
+    id: 3,
+    title: "Workstation da Prestazione",
+    subtitle:
+      "Prestazioni estreme per rendering 3D, montaggio video e sviluppo.",
+    badgeText: "PRO WORKSTATION",
+    btnText: "Scopri i Prodotti",
+    btnLink: "/AllProducts",
+    bgImage:
+      "https://images.unsplash.com/photo-1603302576837-37561b2e2302?q=80&w=1600&auto=format&fit=crop",
+  },
+];
+
+const features = [
+  {
+    icon: <BsCreditCard2Front size={22} />,
+    title: "Pagamenti a Rate",
+    sub: "Anche senza busta paga",
+  },
+  {
+    icon: <BsTruck size={22} />,
+    title: "Spedizione Rapida",
+    sub: "In tutta Italia in 24/48h",
+  },
+  {
+    icon: <BsHeadset size={22} />,
+    title: "Supporto Tecnico",
+    sub: "Assistenza specializzata",
+  },
+  {
+    icon: <BsShieldCheck size={22} />,
+    title: "Garanzia 24 Mesi",
+    sub: "Protezione completa",
+  },
+];
+
 function Home() {
-  const context = useOutletContext() || {};
-  const {
-    searchTerm = "",
-    selectedCategory = "all",
-    maxPrice = 3000,
-    onlyDiscounted = false,
-    inStockOnly = false,
-  } = context;
-
-  const { addToCart, removeFromCart, isInCart } = useCart();
-  const filteredProducts = products.filter((item) => {
-    const term = searchTerm.toLowerCase().trim();
-    const matchesSearch =
-      !term ||
-      item.title?.toLowerCase().includes(term) ||
-      item.subtitle?.toLowerCase().includes(term);
-    const matchesCategory =
-      selectedCategory === "all" ||
-      (item.category &&
-        item.category.toLowerCase() === selectedCategory.toLowerCase());
-
-    const matchesPrice = item.price <= maxPrice;
-
-    const matchesDiscount =
-      !onlyDiscounted ||
-      item.badge?.toLowerCase().includes("offerta") ||
-      item.badge?.toLowerCase().includes("sconto") ||
-      item.isOffer === true;
-
-    const matchesStock = !inStockOnly || item.inStock === true;
-
-    return (
-      matchesSearch &&
-      matchesCategory &&
-      matchesPrice &&
-      matchesDiscount &&
-      matchesStock
-    );
-  });
-
   return (
-    <Container fluid className="home-bg p-4">
-      <Row xs={1} sm={2} md={2} lg={4} className="g-4">
-        {filteredProducts.length > 0 ? (
-          filteredProducts.map((item) => {
-            const added = isInCart(item.id);
-
-            return (
-              <Col key={item.id}>
-                <Card className="product-card text-start position-relative h-100">
-                  <BsHeart className="heart-icon" />
-
-                  {item.badge && (
-                    <Badge bg="primary" className="badge-overlay">
-                      {item.badge}
+    <div className="home-bg pb-5">
+      <Carousel
+        fade
+        controls={true}
+        indicators={true}
+        className="hero-carousel mb-4"
+      >
+        {slides.map((slide) => (
+          <Carousel.Item key={slide.id}>
+            <div
+              className="hero-slide-bg"
+              style={{
+                backgroundImage: `linear-gradient(90deg, rgba(15, 23, 42, 0.92) 0%, rgba(30, 27, 75, 0.6) 55%, rgba(15, 23, 42, 0.85) 100%), url(${slide.bgImage})`,
+              }}
+            >
+              <Container className="h-100 d-flex align-items-center">
+                <Row className="w-100">
+                  <Col
+                    xs={12}
+                    md={8}
+                    lg={6}
+                    className="text-start text-white hero-content py-4"
+                  >
+                    <Badge
+                      bg="primary"
+                      className="hero-badge mb-3 px-3 py-2 text-uppercase fw-bold"
+                    >
+                      {slide.badgeText}
                     </Badge>
-                  )}
-
-                  <Link to={`/prodotto/${item.id}`}>
-                    <Card.Img
-                      variant="top"
-                      src={item.image}
-                      className="p-3"
-                      alt={item.title}
-                      style={{ cursor: "pointer" }}
-                    />
-                  </Link>
-
-                  <Card.Body className="d-flex flex-column justify-content-between">
-                    <div>
-                      <Link
-                        to={`/prodotto/${item.id}`}
-                        className="text-decoration-none text-dark"
-                      >
-                        <Card.Title className="fs-6 fw-bold mb-1">
-                          {item.title}
-                        </Card.Title>
-                      </Link>
-
-                      <Card.Text className="text-muted small mb-2">
-                        {item.subtitle}
-                      </Card.Text>
-
-                      <div className="small text-muted mb-2 d-flex align-items-center gap-1">
-                        <span>Voto medio {item.rating}</span>
-                        <div className="text-dark">
-                          {[...Array(5)].map((_, i) => (
-                            <BsStarFill key={i} size={10} className="me-1" />
-                          ))}
-                        </div>
-                        <span>{item.reviews}</span>
-                      </div>
-
-                      <div className="small text-muted mb-3">
-                        {item.offers} offerte
-                      </div>
-                    </div>
-
-                    <div>
-                      <small className="text-muted d-block">a partire da</small>
-                      <div className="price-text mb-2">
-                        {formatPrice(item.price)}
-                      </div>
-
-                      <div className="d-flex flex-column gap-2">
-                        <Link
-                          to={`/prodotto/${item.id}`}
-                          className="text-decoration-none small fw-semibold d-inline-flex align-items-center gap-1"
-                        >
-                          <BsBoxArrowUpRight size={12} /> Dettagli del prodotto
-                        </Link>
-
-                        {added ? (
-                          <Button
-                            variant="outline-danger"
-                            size="sm"
-                            className="w-100 d-flex align-items-center justify-content-center gap-2 mt-1 fw-semibold"
-                            onClick={() => removeFromCart(item.id)}
-                          >
-                            <BsTrash size={14} /> Rimuovi dal carrello
-                          </Button>
-                        ) : (
-                          <Button
-                            variant="primary"
-                            size="sm"
-                            className="w-100 d-flex align-items-center justify-content-center gap-2 mt-1 fw-semibold"
-                            onClick={() => addToCart(item)}
-                          >
-                            <BsCartPlus size={16} /> Aggiungi al carrello
-                          </Button>
-                        )}
-                      </div>
-                    </div>
-                  </Card.Body>
-                </Card>
-              </Col>
-            );
-          })
-        ) : (
-          <Col xs={12} className="text-center py-5 text-white">
-            <h4 className="fw-semibold">Nessun prodotto trovato</h4>
-            <p className="text-white-50">
-              Nessun risultato corrisponde ai filtri selezionati. Prova a
-              modificare la ricerca o a resettare i filtri dalla barra laterale.
-            </p>
+                    <h1 className="display-4 fw-extrabold mb-2 text-white hero-title">
+                      {slide.title}
+                    </h1>
+                    <p className="lead text-light opacity-75 mb-4 hero-subtitle">
+                      {slide.subtitle}
+                    </p>
+                    <Button
+                      as={Link}
+                      to={slide.btnLink}
+                      size="lg"
+                      variant="primary"
+                      className="hero-btn fw-bold px-4 py-2 border-0"
+                    >
+                      {slide.btnText}
+                    </Button>
+                  </Col>
+                </Row>
+              </Container>
+            </div>
+          </Carousel.Item>
+        ))}
+      </Carousel>
+      <Container className="mb-5">
+        <Row xs={1} sm={2} md={4} className="g-3">
+          {features.map((feat, index) => (
+            <Col key={index}>
+              <div className="feature-box d-flex align-items-center gap-3 p-3 rounded text-white">
+                <div className="feature-icon text-primary">{feat.icon}</div>
+                <div className="text-start">
+                  <h6 className="mb-0 fw-bold">{feat.title}</h6>
+                  <small className="text-white-50">{feat.sub}</small>
+                </div>
+              </div>
+            </Col>
+          ))}
+        </Row>
+      </Container>
+      <Container>
+        <h3 className="text-white text-start fw-bold mb-4">
+          Esplora per Categoria
+        </h3>
+        <Row xs={1} md={3} className="g-4">
+          <Col>
+            <Card className="category-card text-white text-start h-100 p-3">
+              <BsLaptop size={40} className="mb-3 text-primary" />
+              <h4>Notebook Gaming</h4>
+              <p className="text-white-50 small">
+                Portatili ad alte prestazioni con schede grafiche dedicate.
+              </p>
+              <Button
+                as={Link}
+                to="/AllProducts"
+                variant="outline-light"
+                size="sm"
+                className="mt-auto w-auto me-auto"
+              >
+                Vedi Tutti
+              </Button>
+            </Card>
           </Col>
-        )}
-      </Row>
-    </Container>
+          <Col>
+            <Card className="category-card text-white text-start h-100 p-3">
+              <BsCpu size={40} className="mb-3 text-primary" />
+              <h4>PC Assemblati</h4>
+              <p className="text-white-50 small">
+                Desktop da gioco pronti all'uso o configurabili su misura.
+              </p>
+              <Button
+                as={Link}
+                to="/configuratore"
+                variant="outline-light"
+                size="sm"
+                className="mt-auto w-auto me-auto"
+              >
+                Configura Ora
+              </Button>
+            </Card>
+          </Col>
+          <Col>
+            <Card className="category-card text-white text-start h-100 p-3">
+              <BsDisplay size={40} className="mb-3 text-primary" />
+              <h4>Monitor & Accessori</h4>
+              <p className="text-white-50 small">
+                Schermi ad alto refresh rate, tastiere e mouse da pro gamer.
+              </p>
+              <Button
+                as={Link}
+                to="/AllProducts"
+                variant="outline-light"
+                size="sm"
+                className="mt-auto w-auto me-auto"
+              >
+                Scopri Offerte
+              </Button>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
+    </div>
   );
 }
 

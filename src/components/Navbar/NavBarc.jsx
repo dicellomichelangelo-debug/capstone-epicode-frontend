@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Container, Nav, Navbar, NavDropdown, Badge } from "react-bootstrap";
 import { BsCart } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Login from "../Login/Login";
 import { useCart } from "../context/CartContext";
 import "./NavBar.css";
@@ -50,6 +50,7 @@ function Navbarc() {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="w-100 d-flex flex-row flex-wrap justify-content-center justify-content-lg-between align-items-center text-center my-3 my-lg-0">
               <div className="d-flex flex-row flex-wrap justify-content-center align-items-center gap-lg-4 w-100 w-lg-auto mx-auto">
+                {/* SHOP con normali Link (nessuna illuminazione) */}
                 <div className="col-6 col-lg-auto py-2 py-lg-0">
                   <NavDropdown
                     title="SHOP"
@@ -81,28 +82,31 @@ function Navbarc() {
                   </NavDropdown>
                 </div>
 
+                {/* PC Builder (NavLink con effetto attivo) */}
                 <div className="col-6 col-lg-auto py-2 py-lg-0">
                   <Nav.Link
-                    as={Link}
+                    as={NavLink}
                     to="/configuratore"
-                    className="text-white"
+                    className="text-white nav-link-custom"
                   >
                     PC Builder
                   </Nav.Link>
                 </div>
 
+                {/* Comparatore (NavLink con effetto attivo) */}
                 <div className="col-6 col-lg-auto py-2 py-lg-0">
-                  <Nav.Link as={Link} to="/comparatore" className="text-white">
+                  <Nav.Link
+                    as={NavLink}
+                    to="/comparatore"
+                    className="text-white nav-link-custom"
+                  >
                     Comparatore
                   </Nav.Link>
                 </div>
 
+                {/* Accedi */}
                 <div className="col-6 col-lg-auto py-2 py-lg-0">
-                  <Nav.Link
-                    href="#accedi"
-                    className="text-white"
-                    onClick={handleOpenLogin}
-                  >
+                  <Nav.Link className="text-white" onClick={handleOpenLogin}>
                     Accedi
                   </Nav.Link>
                 </div>
